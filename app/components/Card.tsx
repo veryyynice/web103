@@ -12,7 +12,9 @@ interface CardProps {
 }
 
 // 2. Add ": CardProps" next to the props argument
-const Card = ({ id, name, url, description, imageURL }: CardProps) => {
+export default function Card({ id, name, url, description, imageURL }: { id: number; name: string; url: string; description: string; imageURL: string }) {
+  const safeUrl = /^https?:\/\//i.test(url) ? url : `https://${url}`;
+
   return (
     <div className="Card">
       {imageURL && (
@@ -23,22 +25,12 @@ const Card = ({ id, name, url, description, imageURL }: CardProps) => {
       <div className="card-content">
         <h3>{name}</h3>
         <p>{description}</p>
-        {url && (
-          <a href={url} target="_blank" rel="noopener noreferrer" role="button">
-            Visit Channel
-          </a>
-        )}
+        <a href={safeUrl} target="_blank" rel="noopener noreferrer" className="contrast">Visit Channel</a>
       </div>
       <div className="card-actions">
-        <Link to={`/view/${id}`}>
-          <button className="contrast">View Details</button>
-        </Link>
-        <Link to={`/edit/${id}`}>
-          <button className="contrast">Edit</button>
-        </Link>
+        <Link to={`/view_creator/${id}`} className="button">View Details</Link>
+        <Link to={`/edit/${id}`} className="button">Edit</Link>
       </div>
     </div>
   );
-};
-
-export default Card;
+}

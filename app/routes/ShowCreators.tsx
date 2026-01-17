@@ -40,15 +40,15 @@ const ShowCreators = () => {
       {creators && creators.length > 0 ? (
         <div className="creators-container">
           {creators.map((creator) => (
-            <Link key={creator.id} to={`/view_creator/${creator.id}`}>
-              <Card 
-                id={creator.id} 
-                name={creator.name} 
-                url={creator.url} 
-                description={creator.description} 
-                imageURL={creator.imageURL} 
-              />
-            </Link>
+            //<Link key={creator.id} to={`/view_creator/${creator.id}`}>
+            <Card 
+            id={creator.id} 
+            name={creator.name} 
+            url={creator.url} 
+            description={creator.description} 
+            imageURL={creator.imageURL} 
+            />
+            //</Link>
           ))}
         </div>
       ) : (

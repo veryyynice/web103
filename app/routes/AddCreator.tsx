@@ -13,20 +13,26 @@ const AddCreator = () => {
     // Hook to navigate back home after submit
     const navigate = useNavigate();
 
+    function normalizeUrl(u: string) {
+      return /^https?:\/\//i.test(u) ? u : `https://${u}`;
+    }
+
     // 2. The function that runs when you click Submit
     const createCreator = async (event: React.FormEvent) => {
         event.preventDefault(); // Prevent page reload
 
+        const safeUrl = normalizeUrl(url);
         // Insert into Supabase
-        await supabase
+        const { data, error } = await supabase
             .from('creators')
-            .insert([
-                { name, url, description, imageURL }
-            ])
-            .select();
+            .insert({ name, url: safeUrl, description, imageURL })
+            .select()
+            .single();
 
         // Redirect back to the home page (ShowCreators)
-        navigate('/'); // This is the React Router v7 way to redirect
+        if (!error && data) {
+          navigate(`/view_creator/${data.id}`); // or navigate('/')
+        }
     }
 
     return (
