@@ -48,15 +48,15 @@ const ViewCreator = () => {
         <p>{creator.description}</p>
         
         {/* External Link */}
-        <a href={creator.url} target="_blank" rel="noopener noreferrer">
-          <button className="outline">Visit Channel</button>
+        <a href={creator.url} target="_blank" rel="noopener noreferrer" role="button" className="outline">
+          Visit Channel
         </a>
 
         {/* Step 8a: Edit Button */}
         {/* We add this now so you can easily navigate to the edit page later */}
         <div style={{ marginTop: '20px' }}>
-            <Link to={`/edit/${creator.id}`}>
-                <button>Edit Creator</button>
+            <Link to={`/edit/${creator.id}`} role="button">
+                Edit Creator
             </Link>
         </div>
         

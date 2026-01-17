@@ -10,6 +10,10 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
+export const meta: Route.MetaFunction = () => [
+  { title: "CreatorVerse" },
+];
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -20,6 +24,10 @@ export const links: Route.LinksFunction = () => [
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+  },
+  {
+    rel: "stylesheet",
+    href: "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css",
   },
 ];
 
@@ -33,7 +41,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <main className="container">
+          <nav>
+            <ul>
+              <li><strong>CreatorVerse</strong></li>
+            </ul>
+            <ul>
+              <li><a href="/">Return to Home Screen</a></li>
+            </ul>
+          </nav>
+          {children}
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>

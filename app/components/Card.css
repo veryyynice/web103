@@ -1,9 +1,18 @@
 .Card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 300px; /* Or whatever width fits your design */
+  /* background-color: white;  -- Removed to let Pico handle theme */
+  /* border-radius: 8px; -- Pico handles this */
+  /* box-shadow: ... -- Pico handles this */
+  /* width: 300px; -- Keeping width or making it responsive is fine */
+  width: 100%;
+  max-width: 340px; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+/* Pico puts padding in article, so we might want to adjust card-image if we want it flush */
+.card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }

@@ -16,21 +16,21 @@ export default function Card({ id, name, url, description, imageURL }: { id: num
   const safeUrl = /^https?:\/\//i.test(url) ? url : `https://${url}`;
 
   return (
-    <div className="Card">
+    <article className="Card">
       {imageURL && (
-        <div className="card-image">
+        <header className="card-image">
           <img src={imageURL} alt={name} />
-        </div>
+        </header>
       )}
       <div className="card-content">
         <h3>{name}</h3>
         <p>{description}</p>
-        <a href={safeUrl} target="_blank" rel="noopener noreferrer" className="contrast">Visit Channel</a>
+        <a href={safeUrl} target="_blank" rel="noopener noreferrer" role="button" className="contrast">Visit Channel</a>
       </div>
-      <div className="card-actions">
-        <Link to={`/view_creator/${id}`} className="button">View Details</Link>
-        <Link to={`/edit/${id}`} className="button">Edit</Link>
-      </div>
-    </div>
+      <footer className="card-actions">
+        <Link to={`/view_creator/${id}`} role="button">View Details</Link>
+        <Link to={`/edit/${id}`} role="button" className="secondary">Edit</Link>
+      </footer>
+    </article>
   );
 }

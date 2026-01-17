@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
 import { supabase } from '../client'; 
 import { Link } from 'react-router-dom';
+import './ShowCreators.css';
 
 // 1. Define what a "Creator" looks like in your database
 interface Creator {
@@ -41,13 +42,13 @@ const ShowCreators = () => {
         <div className="creators-container">
           {creators.map((creator) => (
             //<Link key={creator.id} to={`/view_creator/${creator.id}`}>
-            <Card 
-            id={creator.id} 
-            name={creator.name} 
-            url={creator.url} 
-            description={creator.description} 
-            imageURL={creator.imageURL} 
-            />
+              <Card 
+                id={creator.id} 
+                name={creator.name} 
+                url={creator.url} 
+                description={creator.description} 
+                imageURL={creator.imageURL} 
+              />
             //</Link>
           ))}
         </div>
