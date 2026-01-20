@@ -12,6 +12,7 @@ import "./app.css";
 
 export const meta: Route.MetaFunction = () => [
   { title: "CreatorVerse" },
+  { name: "description", content: "A universe of your favorite content creators" },
 ];
 
 export const links: Route.LinksFunction = () => [

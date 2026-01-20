@@ -33,10 +33,11 @@ const ShowCreators = () => {
   return (
     <div className="ShowCreators">
         <div className ="header">
-            <h1>CreatorVerse</h1>
-            <Link to="/new">
-                <button className="contrast">Add New Creator</button>
-            </Link>
+            <hgroup>
+                <h1>CreatorVerse</h1>
+                <p>Welcome to the ultimate collection of content creators. Explore, add, and manage your favorites.</p>
+            </hgroup>
+            <Link to="/new" role="button" className="contrast">Add New Creator</Link>
         </div>
       {creators && creators.length > 0 ? (
         <div className="creators-container">
